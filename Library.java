@@ -82,3 +82,10 @@ public class Member {
         System.out.println("Member Since:" + membershipDateDay + "/" + membershipDateMonth + "/" + membershipDateYear);
     }
 }
+
+public class Library {
+    public static void main(String[] args) {
+        
+    }
+
+}
