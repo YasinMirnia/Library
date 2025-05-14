@@ -127,6 +127,28 @@ public class Book {
         this.orginalLanguage = orginalLanguage;
     }
 
+    // Gretter Methods
+    public int getBookCode() {
+        return bookCode;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public String getAuthor() {
+        return author;
+    }
+    public int getPublishYear() {
+        return publishYear;
+    }
+    public String getPublisher() {
+        return publisher;
+    }
+    public int getNumberOfPages() {
+        return numberOfPages;
+    }
+    public String getOrginalLanguage() {
+        return orginalLanguage;
+    }
 }
 
 // Main Method
