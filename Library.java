@@ -26,7 +26,7 @@ public class Member {
         this.membershipDateYear = membershipDateYear;
     }
 
-    // Setter Methods
+    // Setter Methods member
     public void setName(String name) {
         this.name = name;
     }
@@ -55,7 +55,7 @@ public class Member {
         this.membershipDateYear = membershipDateYear;
     }
 
-    // Getter Methods
+    // Getter Methods for member
    public String getName() {
         return name;
     }
@@ -84,7 +84,7 @@ public class Member {
         return membershipDateYear;
     }
 
-    // Show information Method
+    // Show information Method for member
     public void displayMemberInfo(){
         System.out.println("First Name:" + name);
         System.out.println("Last Name:" + lastName);
@@ -105,7 +105,7 @@ public class Book {
     private int numberOfPages;
     private String orginalLanguage;
 
-    // Constractor
+    // Constractor of book
     public Book(int bookCode, String title, String author, int publishYear, String publisher,
     int numberOfPages, String orginalLanguage) {
         this.bookCode = bookCode;
@@ -117,7 +117,7 @@ public class Book {
         this.orginalLanguage = orginalLanguage;
     }
 
-    // Setter Methods
+    // Setter Methods of book
     public void setBookCode(int bookCode){
         this.bookCode = bookCode;
     }
@@ -140,7 +140,7 @@ public class Book {
         this.orginalLanguage = orginalLanguage;
     }
 
-    // Gretter Methods
+    // Gretter Methods of book
     public int getBookCode() {
         return bookCode;
     }
@@ -161,6 +161,17 @@ public class Book {
     }
     public String getOrginalLanguage() {
         return orginalLanguage;
+    }
+
+    // Show information method for book
+    public void displayBookInfo() {
+        System.out.println("Book's Code:" + bookCode);
+        System.out.println("Book's Title:" + title);
+        System.out.println("Book's Author:" + bookCode);
+        System.out.println("Book's Publish Year:" + publishYear);
+        System.out.println("Book's Publisher:" + publisher);
+        System.out.println("Book's Number of Pages:" + numberOfPages);
+        System.out.println("Book's Orginal Language:" + orginalLanguage);
     }
 }
 
