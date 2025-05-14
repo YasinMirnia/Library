@@ -83,9 +83,32 @@ public class Member {
     }
 }
 
+public class Books {
+    private int bookCode;
+    private String title;
+    private String author;
+    private int publishYear;
+    private String publisher;
+    private int numberOfPages;
+    private String orginalLanguage;
+
+    // Constractor
+    public Books(int bookCode, String title, String author, int publishYear, String publisher,
+    int numberOfPages, String orginalLanguage) {
+        this.bookCode = bookCode;
+        this.title = title;
+        this.author = author;
+        this.publishYear = publishYear;
+        this.publisher = publisher;
+        this.numberOfPages = numberOfPages;
+        this.orginalLanguage = orginalLanguage;
+    }
+
+}
+
+// Main Method
 public class Library {
     public static void main(String[] args) {
-        
     }
 
 }
