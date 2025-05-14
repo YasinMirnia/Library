@@ -104,6 +104,29 @@ public class Book {
         this.orginalLanguage = orginalLanguage;
     }
 
+    // Setter Methods
+    public void setBookCode(int bookCode){
+        this.bookCode = bookCode;
+    }
+    public void setTitle(String title){
+        this.title = title;
+    }
+    public void setAuthor(String author){
+        this.author = author;
+    }
+    public void setPublishYear(int publishYear){
+        this.publishYear = publishYear;
+    }
+    public void setPublisher(String publisher){
+        this.publisher = publisher;
+    }
+    public void setNumberOfPages(int numberOfPages){
+        this.numberOfPages = numberOfPages;
+    }
+    public void setOrginalLanguage(String orginalLanguage){
+        this.orginalLanguage = orginalLanguage;
+    }
+
 }
 
 // Main Method
