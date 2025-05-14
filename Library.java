@@ -13,6 +13,19 @@ public class Member {
     private int membershipDateMonth;
     private int membershipDateYear;
 
+    // Constractor
+    public Member(String name, String lastName, int studentId, String faculty, String field, int entranceYear, int membershipDateDay, int membershipDateMonth, int membershipDateYear) {
+        this.name = name;
+        this.lastName = lastName;
+        this.studentId = studentId;
+        this.faculty = faculty;
+        this.field = field;
+        this.enentranceYear = entranceYear;
+        this.membershmembershipDateDay = membershipDateDay;
+        this.membershmembershipDateMonth = membershipDateMonth;
+        this.membershipDateYear = membershipDateYear;
+    }
+
     // Setter Methods
     public void setName(String name) {
         this.name = name;
