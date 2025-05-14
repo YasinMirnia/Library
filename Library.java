@@ -83,7 +83,7 @@ public class Member {
     }
 }
 
-public class Books {
+public class Book {
     private int bookCode;
     private String title;
     private String author;
@@ -93,7 +93,7 @@ public class Books {
     private String orginalLanguage;
 
     // Constractor
-    public Books(int bookCode, String title, String author, int publishYear, String publisher,
+    public Book(int bookCode, String title, String author, int publishYear, String publisher,
     int numberOfPages, String orginalLanguage) {
         this.bookCode = bookCode;
         this.title = title;
