@@ -178,6 +178,42 @@ public class Book {
 // Main Method
 public class Library {
     public static void main(String[] args) {
+        Member[] member = new Member();
+        Scanner input = new Scanner(System.in);
+        System.out.println("Welcome to Saturn's Library!");
+        System.out.println("Select a Number for Countinue:");
+        System.out.println("1: Add Member");
+        System.out.println("2: Edit Member's Information");
+        System.out.println("3: Delete Member");
+        System.out.println("4: Add Book");
+        System.out.println("5: Edit Book's Information");
+        System.out.println("6: Delete Book");
+        System.out.println("6: Delete Book");
+        System.out.println("7: Exit");
+        int selectedNumber = input.nextInt();
+        for (int i = 0; selectedNumber != 7; i++){
+            if (selectedNumber == 1){
+                System.out.println("Adding a Member:");
+                System.out.println("Enter member's Name:");
+                member[i].name = input.nextLine();
+                System.out.println("Enter member's Last Name:");
+                member[i].lastName = input.nextLine();
+                System.out.println("Enter member's Id:");
+                member[i].studentId = input.nextInt();
+                System.out.println("Enter member's Faculty:");
+                member[i].faculty = input.nextLine();
+                System.out.println("Enter member's Major:");
+                member[i].field = input.nextLine();
+                System.out.println("Enter member's Enrance Year:");
+                member[i].enentranceYear = input.nextInt();
+                System.out.println("Enter member's Membership Day:");
+                member[i].membershipDateDay = input.nextInt();
+                System.out.println("Enter member's Membership Month:");
+                member[i].membershipDateMonth = input.nextInt();
+                System.out.println("Enter member's Membership Year:");
+                member[i].membershipDateYear = input.nextInt();
+            }
+        }
     }
 
 }
