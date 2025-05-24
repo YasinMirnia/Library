@@ -88,11 +88,11 @@ public class Member {
 
     // Show information Method for member
     public void displayMemberInfo(){
-        System.out.println("Full Name:" + fullName);
-        System.out.println("Student Id:" + studentId);
-        System.out.println("Faculty:" + faculty);
-        System.out.println("Field:" + field);
-        System.out.println("Entrance Year:" + entranceYear);
-        System.out.println("Member Since:" + membershipDateDay + "/" + membershipDateMonth + "/" + membershipDateYear);
+        System.out.println("1.Full Name: " + fullName);
+        System.out.println("2.Student Id: " + studentId);
+        System.out.println("3.Faculty: " + faculty);
+        System.out.println("4.Field: " + field);
+        System.out.println("5.Entrance Year: " + entranceYear);
+        System.out.println("6.Member Since: " + membershipDateDay + "/" + membershipDateMonth + "/" + membershipDateYear);
     }
 }
