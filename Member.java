@@ -8,7 +8,6 @@ public class Member {
     private int membershipDateMonth;
     private int membershipDateYear;
 
-    // Constractor
     public Member(String fullName, int studentId, String faculty, String field, int entranceYear, int membershipDateDay, int membershipDateMonth, int membershipDateYear) {
         this.fullName = fullName;
         this.studentId = studentId;
@@ -20,7 +19,6 @@ public class Member {
         this.membershipDateYear = membershipDateYear;
     }
 
-    // Setter Methods member
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
@@ -53,7 +51,6 @@ public class Member {
         this.membershipDateYear = membershipDateYear;
     }
 
-    // Getter Methods for member
    public String getFullName() {
         return fullName;
     }
@@ -86,7 +83,6 @@ public class Member {
         return membershipDateYear;
     }
 
-    // Show information Method for member
     public void displayMemberInfo(){
         System.out.println("1.Full Name: " + fullName);
         System.out.println("2.Student Id: " + studentId);
