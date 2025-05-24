@@ -92,3 +92,32 @@ public class Member {
         System.out.println("6.Member Since: " + membershipDateDay + "/" + membershipDateMonth + "/" + membershipDateYear);
     }
 }
+
+class Professor extends Member {
+    protected int teachingCode;
+    protected String lesson;
+    protected int experiences;
+    public Professor(String fullName, int teachingCode, String faculty, String lesson, int entranceYear, int membershipDateDay, int membershipDateMonth, int membershipDateYear, int experiences) {
+        super(fullName, faculty, entranceYear, membershipDateDay, membershipDateMonth, membershipDateYear);
+        this.teachingCode = teachingCode;
+        this.lesson = lesson;
+        this.experiences = experiences;
+    }
+
+}
+
+class UndergraduateStudent extends Member {
+    protected int semester;
+    public UndergraduateStudent(String fullName, int studentId, String faculty, String field, int entranceYear, int membershipDateDay, int membershipDateMonth, int membershipDateYear, int semester) {
+        super(fullName, studentId, faculty, field, entranceYear, membershipDateDay, membershipDateMonth, membershipDateYear);
+        this.semester = semester;
+    }
+}
+
+class GraduateStudent extends Member {
+    protected int graduationYear;
+    public GraduateStudent(String fullName, int studentId, String faculty, String field, int entranceYear, int membershipDateDay, int membershipDateMonth, int membershipDateYear, int graduationYear) {
+        super(fullName, studentId, faculty, field, entranceYear, membershipDateDay, membershipDateMonth, membershipDateYear);
+        this.graduationYear = graduationYear;
+    }
+}
