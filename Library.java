@@ -24,6 +24,7 @@ public class Library {
         selectedNumber = input.nextInt();
 
             if (selectedNumber == 1){
+                System.out.println("\n");
                 System.out.println("Adding a Member:");
                 
                 System.out.println("Enter member's Full Name:");
@@ -65,31 +66,33 @@ public class Library {
                 System.out.println("Member has been Added Successfully");
 
             } else if (selectedNumber == 2) {
+                System.out.println("\n");
                 System.out.println("You Are Editing Member's Information!");
                 System.out.println("Choose A Member Using Student ID:\n");
                 int selectMember = input.nextInt();
+                boolean found = false;
                 for(int i = 0; i < members.size(); i++) {
                     Member searchMember = members.get(i);
                     if (searchMember.getStudentId() == selectMember) {
                         searchMember.displayMemberInfo();
                         System.out.println("which Info You Want to Edit? choose between 1 to 4");
-                        int selectEditNumber = input.nextInt();
+                        int selectedEditNumber = input.nextInt();
                         do {
-                            switch(selectEditNumber) {
+                            switch(selectedEditNumber) {
                                 
                                 case 1:
                                     System.out.println("Editing Member's Full Name:");
                                     System.out.println("Enter New Name:");
                                     input.nextLine();
                                     searchMember.setFullName(input.nextLine());
-                                    System.out.println("Member's Full Name has been edited!");
+                                    System.out.println("Member's Full Name has been edited!\n");
                                     break;
 
                                 case 2:
                                     System.out.println("Editing Member's ID:");
                                     System.out.println("Enter New ID:");
                                     searchMember.setStudentId(input.nextInt());
-                                    System.out.println("Members' Id has been edited!");
+                                    System.out.println("Members' Id has been edited!\n");
                                     break;
 
                                 case 3:
@@ -97,7 +100,7 @@ public class Library {
                                     System.out.println("Enter New Faculty:");
                                     input.nextLine();
                                     searchMember.setFaculty(input.nextLine());
-                                    System.out.println("Member's Faculty has been edited!");
+                                    System.out.println("Member's Faculty has been edited!\n");
                                     break;
 
                                 case 4:
@@ -105,19 +108,23 @@ public class Library {
                                     System.out.println("Enter New Major:");
                                     input.nextLine();
                                     searchMember.setField(input.nextLine());
-                                    System.out.println("Members's Major has been edited!");
+                                    System.out.println("Members's Major has been edited!\n");
                                     break;
 
                                 default:
                                     System.out.println("You Got Back!\n");
                                 }
-
-                        } while (selectEditNumber < 1 || selectEditNumber > 4);
-                    } else {
-                        System.out.println("Member Not Found!\n");
+                                System.out.println("Enter a number for Continue or 0 for Exit:");
+                                selectedEditNumber = input.nextInt();
+                        } while (selectedEditNumber != 0);
+                        found = true;
                     }
                 }
+                if (!found) {
+                    System.out.println("Member Not Found!\n");
+                }
             } else if (selectedNumber == 3) {
+                System.out.println("\n");
                 System.out.println("You Are Deleting a Member:");
                 System.out.println("Choose A Member Using Student ID:\n");
                 int selectMember = input.nextInt();
@@ -141,6 +148,7 @@ public class Library {
                     }
                 }
             } else if ( selectedNumber == 4) {
+                System.out.println("\n");
                System.out.println("Adding a Book:");
 
                System.out.println("Enter Book's Code:");
@@ -176,8 +184,92 @@ public class Library {
 
                books.add(new Book(bookCode, title, author, publishYear, publisher, numberOfPages, orginalLanguage));
                System.out.println("Book Is Successfully added\n");
-            }
-        } while (selectedNumber != 0);
-    }
 
-}
+            } else if (selectedNumber == 5){
+                System.out.println("\n");
+                System.out.println("You Are Editing Book's Information!");
+                System.out.println("Choose A Member Using Book's Code:\n");
+                int selectBook = input.nextInt();
+                boolean found = false;
+                for(int i = 0; i < books.size(); i++) {
+                    Book searchBook = books.get(i);
+                    if (searchBook.getBookCode() == selectBook) {
+                        searchBook.displayBookInfo();
+                        System.out.println("which Info You Want to Edit?");
+                        int selectedEditNumber = input.nextInt();
+                        do {
+                            switch(selectedEditNumber) {
+                                
+                                case 1:
+                                    System.out.println("Editing Book's Code:");
+                                    System.out.println("Enter New Code:");
+                                    input.nextLine();
+                                    searchBook.setBookCode(input.nextInt());
+                                    System.out.println("Book's Code has been edited!\n");
+                                    break;
+
+                                case 2:
+                                    System.out.println("Editing Book's Title:");
+                                    System.out.println("Enter New Title:");
+                                    input.nextLine();
+                                    searchBook.setTitle(input.nextLine());
+                                    System.out.println("Book's Title has been edited!\n");
+                                    break;
+
+                                case 3:
+                                    System.out.println("Editing Book's Author:");
+                                    System.out.println("Enter New Author:");
+                                    input.nextLine();
+                                    searchBook.setAuthor(input.nextLine());
+                                    System.out.println("Book's Author has been edited!\n");
+                                    break;
+
+                                case 4:
+                                    System.out.println("Editing Book's Publish Year:");
+                                    System.out.println("Enter New Publish Year:");
+                                    input.nextLine();
+                                    searchBook.setPublishYear(input.nextInt());
+                                    System.out.println("Book's Publish Year has been edited!\n");
+                                    break;
+                                
+                                case 5:
+                                    System.out.println("Editing Book's Publisher:");
+                                    System.out.println("Enter New Publisher:");
+                                    input.nextLine();
+                                    searchBook.setPublisher(input.nextLine());
+                                    System.out.println("Book's Publisher has been edited!\n");
+                                    break;
+                                
+                                case 6:
+                                    System.out.println("Editing Book's Number of Pages:");
+                                    System.out.println("Enter New Number of Pages:");
+                                    input.nextLine();
+                                    searchBook.setNumberOfPages(input.nextInt());
+                                    System.out.println("Book's Number of Pages has been edited!\n");
+                                    break;
+                                
+                                case 7:
+                                    System.out.println("Editing Book's Orginal Language:");
+                                    System.out.println("Enter New Orginal Language:");
+                                    input.nextLine();
+                                    searchBook.setOrginalLanguage(input.nextLine());
+                                    System.out.println("Book's Orginal Language has been edited!\n");
+                                    break;
+
+                                default:
+                                    System.out.println("You Got Back!\n");
+                                } 
+                                System.out.println("Enter a number for Continue or 0 for Exit:");
+                                selectedEditNumber = input.nextInt();
+                        } while (selectedEditNumber != 0);
+                        found = true;
+                    }
+                }
+                if (!found) {
+                    System.out.println("Book Not Found!\n");
+                }
+            } 
+        } while (selectedNumber != 0); 
+    } 
+
+} 
