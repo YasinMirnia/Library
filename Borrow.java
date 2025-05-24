@@ -5,33 +5,16 @@ public class Borrow {
     private int borrowDateMonth;
     private int borrowDateYear;
 
+
     public Borrow(Member member, Book book, int borrowDateDay, int borrowDateMonth, int borrowDateYear) {
         this.member = member;
         this.book = book;
         this.borrowDateDay = borrowDateDay;
         this.borrowDateMonth = borrowDateMonth;
         this.borrowDateYear =borrowDateYear;
-        Book.decreaseAvailableBooksForReserve();
-    }
-
-    public void setMember (Member member) {
-        this.member = member;
-    }
-
-    public void setBook (Book book) {
-        this.book = book;
-    }
-    
-    public void setBorrowDateDay (int borrowDateDay) {
-        this.borrowDateDay = borrowDateDay;
-    }
-
-    public void setBorrowDateMonth (int borrowDateMonth) {
-        this.borrowDateMonth = borrowDateMonth;
-    }
-
-    public void setBorrowDateYear (int borrowDateYear) {
-        this.borrowDateYear = borrowDateYear;
+        if (!Book.borrowBook()) {
+            throw new IllegalStateException("There is no Book available for borrowing.");
+        }
     }
 
     public Member getMember () {

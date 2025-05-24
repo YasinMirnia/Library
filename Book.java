@@ -10,6 +10,14 @@ public class Book {
     protected static int totalBooks = 0;
     protected static int availableBooksForReserve = 0;
 
+     public static boolean borrowBook() {
+        if (availableBooksForReserve > 0) {
+            availableBooksForReserve--;
+            return true;
+        }
+        return false;
+    }
+
     public static void printTotalBooks() {
         System.out.println("Total books are: " + totalBooks);
     }
@@ -24,6 +32,10 @@ public class Book {
 
     public static void increaseAvailableBooksForReserve() {
         availableBooksForReserve++;
+    }
+
+    public static int getAvailableBooksForReserve() {
+        return availableBooksForReserve;
     }
 
      public static void decreaseBooks() {
