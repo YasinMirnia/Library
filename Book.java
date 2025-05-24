@@ -63,12 +63,12 @@ public class Book {
     }
 
     public void displayBookInfo() {
-        System.out.println("Book's Code:" + bookCode);
-        System.out.println("Book's Title:" + title);
-        System.out.println("Book's Author:" + author);
-        System.out.println("Book's Publish Year:" + publishYear);
-        System.out.println("Book's Publisher:" + publisher);
-        System.out.println("Book's Number of Pages:" + numberOfPages);
-        System.out.println("Book's Orginal Language:" + orginalLanguage);
+        System.out.println("1.Book's Code:" + bookCode);
+        System.out.println("2.Book's Title:" + title);
+        System.out.println("3.Book's Author:" + author);
+        System.out.println("4.Book's Publish Year:" + publishYear);
+        System.out.println("5.Book's Publisher:" + publisher);
+        System.out.println("6.Book's Number of Pages:" + numberOfPages);
+        System.out.println("7.Book's Orginal Language:" + orginalLanguage);
     }
 }
