@@ -14,7 +14,7 @@ public class Book {
         System.out.println("Total books are: " + totalBooks);
     }
 
-    public static void printavailAvailableBooksForReserve() {
+    public static void printAvailableBooksForReserve() {
         System.out.println("Total books that are available for reserve: " + availableBooksForReserve);
     }
 
