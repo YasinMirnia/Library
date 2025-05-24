@@ -13,7 +13,7 @@ public class Library {
 
         int selectedNumber;
         do {
-        System.out.println("Select a Number for Countinue:");
+        System.out.println("Select a Number for Continue:");
         System.out.println("1: Add Member");
         System.out.println("2: Edit Member's Information");
         System.out.println("3: Delete Member");
@@ -45,7 +45,7 @@ public class Library {
                 String major = input.nextLine();
                 System.out.println("\n");
 
-                System.out.println("Enter member's Enrance Year:");
+                System.out.println("Enter member's Entrance Year:");
                 int entranceYear = input.nextInt();
                 input.nextLine();
                 System.out.println("\n");
@@ -108,7 +108,7 @@ public class Library {
                                     System.out.println("Enter New Major:");
                                     input.nextLine();
                                     searchMember.setField(input.nextLine());
-                                    System.out.println("Members's Major has been edited!\n");
+                                    System.out.println("Member's Major has been edited!\n");
                                     break;
 
                                 default:
@@ -128,9 +128,11 @@ public class Library {
                 System.out.println("You Are Deleting a Member:");
                 System.out.println("Choose A Member Using Student ID:\n");
                 int selectMember = input.nextInt();
+                boolean found = false;
                 for (int i = 0; i < members.size(); i++){
                     Member searchMember = members.get(i);
                     if (searchMember.getStudentId() == selectMember) {
+                        found = true;
                         searchMember.displayMemberInfo();
                         System.out.println("Are you sure for deleting this Member? Only 'Yes' or 'No'!\n");
                         input.nextLine();
@@ -143,10 +145,11 @@ public class Library {
                         } else {
                             System.out.println("Invalid Value!\n");
                         }
-                    } else {
-                        System.out.println("Member Not Found!\n");
                     }
                 }
+                if (!found) {
+                    System.out.println("Member Not Found!\n");
+                    } 
             } else if ( selectedNumber == 4) {
                 System.out.println("\n");
                System.out.println("Adding a Book:");
@@ -178,7 +181,7 @@ public class Library {
                input.nextLine();
                System.out.println("\n");
 
-               System.out.println("Enter Book's Orginal Language:");
+               System.out.println("Enter Book's Original Language:");
                String orginalLanguage = input.nextLine();
                System.out.println("\n");
 
@@ -188,7 +191,7 @@ public class Library {
             } else if (selectedNumber == 5){
                 System.out.println("\n");
                 System.out.println("You Are Editing Book's Information!");
-                System.out.println("Choose A Member Using Book's Code:\n");
+                System.out.println("Choose A Book Using Book's Code:\n");
                 int selectBook = input.nextInt();
                 boolean found = false;
                 for(int i = 0; i < books.size(); i++) {
@@ -249,11 +252,11 @@ public class Library {
                                     break;
                                 
                                 case 7:
-                                    System.out.println("Editing Book's Orginal Language:");
-                                    System.out.println("Enter New Orginal Language:");
+                                    System.out.println("Editing Book's Original Language:");
+                                    System.out.println("Enter New Original Language:");
                                     input.nextLine();
                                     searchBook.setOrginalLanguage(input.nextLine());
-                                    System.out.println("Book's Orginal Language has been edited!\n");
+                                    System.out.println("Book's Original Language has been edited!\n");
                                     break;
 
                                 default:
@@ -268,8 +271,38 @@ public class Library {
                 if (!found) {
                     System.out.println("Book Not Found!\n");
                 }
-            } 
+            } else if (selectedNumber == 6) {
+                System.out.println("\n");
+                System.out.println("You Are Deleting a Book:");
+                System.out.println("Choose A Book Using book's Code:\n");
+                int selectBook = input.nextInt();
+                boolean found = false;
+                for (int i = 0; i < books.size(); i++){
+                    Book searchBook = books.get(i);
+                    if (searchBook.getBookCode() == selectBook) {
+                        found = true;
+                        searchBook.displayBookInfo();
+                        System.out.println("Are you sure for deleting this Book? Only 'Yes' or 'No'!\n");
+                        input.nextLine();
+                        String answer = input.nextLine();
+                        if (answer.equals("Yes")) {
+                        books.remove(i);
+                            System.out.println("Book Has Been Deleted!\n");
+                        } else if (answer.equals("No")) {
+                            System.out.println("You are Back!\n");
+                        } else {
+                            System.out.println("Invalid Value!\n");
+                        }
+                    }
+                }
+                if (!found) {
+                    System.out.println("Book Not Found!\n");
+                    }
+            } else if (selectedNumber == 0) {
+                System.out.println("See You Soon!");
+            } else {
+                System.out.println("Invalid Selection!\n");
+            }
         } while (selectedNumber != 0); 
     } 
-
 } 
