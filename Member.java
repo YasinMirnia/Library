@@ -5,12 +5,23 @@ public class Member {
     protected int membershipDateMonth;
     protected int membershipDateYear;
 
+    protected static int totalMembers = 0;
+
+    public static void increaseTotalMembers() {
+        totalMembers++;
+    }
+
+    public static void printTotalMembers() {
+        System.out.println("Members are: " + totalMembers);
+    }
+
     public Member(String fullName, int entranceYear, int membershipDateDay, int membershipDateMonth, int membershipDateYear) {
         this.fullName = fullName;
         this.entranceYear = entranceYear;
         this.membershipDateDay = membershipDateDay;
         this.membershipDateMonth = membershipDateMonth;
         this.membershipDateYear = membershipDateYear;
+        increaseTotalMembers();
     }
 
     public void setFullName(String fullName) {
