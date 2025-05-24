@@ -72,3 +72,28 @@ public class Book {
         System.out.println("7.Book's Orginal Language:" + orginalLanguage);
     }
 }
+
+class Novel extends Book {
+    protected String genere;
+    public Book(int bookCode, String title, String author, int publishYear, String publisher,
+    int numberOfPages, String orginalLanguage, String genere) {
+        super(bookCode, title, author, publishYear, publisher, numberOfPages, orginalLanguage);
+        this.genere = genere;
+    }
+}
+
+class WorkBook extends Book {
+    protected String subject;
+    public Book(int bookCode, String title, String author, int publishYear, String publisher,
+    int numberOfPages, String orginalLanguage, String subject) {
+        super(bookCode, title, author, publishYear, publisher, numberOfPages, orginalLanguage);
+        this.subject = subject;
+}
+
+class TextBook extends Book {
+    protected String jeldType;
+    public Book(int bookCode, String title, String author, int publishYear, String publisher,
+    int numberOfPages, String orginalLanguage, String jeldType) {
+        super(bookCode, title, author, publishYear, publisher, numberOfPages, orginalLanguage);
+        this.jeldType = jeldType;
+}
