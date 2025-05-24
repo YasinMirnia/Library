@@ -7,7 +7,6 @@ public class Book {
     private int numberOfPages;
     private String orginalLanguage;
 
-    // Constractor of book
     public Book(int bookCode, String title, String author, int publishYear, String publisher,
     int numberOfPages, String orginalLanguage) {
         this.bookCode = bookCode;
@@ -19,7 +18,6 @@ public class Book {
         this.orginalLanguage = orginalLanguage;
     }
 
-    // Setter Methods of book
     public void setBookCode(int bookCode){
         this.bookCode = bookCode;
     }
@@ -42,7 +40,6 @@ public class Book {
         this.orginalLanguage = orginalLanguage;
     }
 
-    // Gretter Methods of book
     public int getBookCode() {
         return bookCode;
     }
@@ -65,7 +62,6 @@ public class Book {
         return orginalLanguage;
     }
 
-    // Show information method for book
     public void displayBookInfo() {
         System.out.println("Book's Code:" + bookCode);
         System.out.println("Book's Title:" + title);
