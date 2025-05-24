@@ -7,6 +7,35 @@ public class Book {
     protected int numberOfPages;
     protected String orginalLanguage;
 
+    protected static int totalBooks = 0;
+    protected static int availableBooksForReserve = 0;
+
+    public static void printTotalBooks() {
+        System.out.println("Total books are: " + totalBooks);
+    }
+
+    public static void printavailAvailableBooksForReserve() {
+        System.out.println("Total books that are available for reserve: " + availableBooksForReserve);
+    }
+
+    public static void increaseBooks() {
+        totalBooks++;
+    }
+
+    public static void increaseAvailableBooksForReserve() {
+        availableBooksForReserve++;
+    }
+
+     public static void decreaseBooks() {
+        if (totalBooks > 0)
+            totalBooks--;
+    }
+
+     public static void decreaseAvailableBooksForReserve() {
+        if (availableBooksForReserve > 0)
+            availableBooksForReserve--;
+    }
+
     public Book(int bookCode, String title, String author, int publishYear, String publisher,
     int numberOfPages, String orginalLanguage) {
         this.bookCode = bookCode;
@@ -16,6 +45,8 @@ public class Book {
         this.publisher = publisher;
         this.numberOfPages = numberOfPages;
         this.orginalLanguage = orginalLanguage;
+        totalBooks++;         
+        availableBooksForReserve++;
     }
 
     public void setBookCode(int bookCode){
