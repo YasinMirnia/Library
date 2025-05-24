@@ -69,6 +69,18 @@ public class Member {
         System.out.println("2.Entrance Year: " + entranceYear);
         System.out.println("3.Member Since: " + membershipDateDay + "/" + membershipDateMonth + "/" + membershipDateYear);
     }
+
+    public abstract int getStudentId();
+
+    public abstract void setStudentId(int id);
+
+    public abstract String getFaculty();
+
+    public abstract void setFaculty(String faculty);
+
+    public abstract String getField();
+
+    public abstract void setField(String field);
 }
 
 class Professor extends Member {
