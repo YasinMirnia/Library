@@ -5,8 +5,10 @@ import java.util.List;
 
 public class Library {
     public static void main(String[] args) {
-        List <Member> members = new ArrayList<>();
         Scanner input = new Scanner(System.in);
+        List <Member> members = new ArrayList<>();
+        List <Book> books = new ArrayList<>();
+
         System.out.println("Welcome to Saturn's Library!\n");
 
         int selectedNumber;
@@ -15,13 +17,12 @@ public class Library {
         System.out.println("1: Add Member");
         System.out.println("2: Edit Member's Information");
         System.out.println("3: Delete Member");
-        System.out.println("4: Display Member Information:");
-        System.out.println("5: Add Book");
-        System.out.println("6: Edit Book's Information");
-        System.out.println("7: Delete Book");
-        System.out.println("8: Disply Book Information:");
+        System.out.println("4: Add Book");
+        System.out.println("5: Edit Book's Information");
+        System.out.println("6: Delete Book");
         System.out.println("0: Exit\n");
-            selectedNumber = input.nextInt();
+        selectedNumber = input.nextInt();
+
             if (selectedNumber == 1){
                 System.out.println("Adding a Member:");
                 
@@ -71,10 +72,11 @@ public class Library {
                     Member searchMember = members.get(i);
                     if (searchMember.getStudentId() == selectMember) {
                         searchMember.displayMemberInfo();
-                        System.out.println("which Info You Want to Edit?");
+                        System.out.println("which Info You Want to Edit? choose between 1 to 4");
                         int selectEditNumber = input.nextInt();
                         do {
                             switch(selectEditNumber) {
+                                
                                 case 1:
                                     System.out.println("Editing Member's Full Name:");
                                     System.out.println("Enter New Name:");
@@ -82,12 +84,14 @@ public class Library {
                                     searchMember.setFullName(input.nextLine());
                                     System.out.println("Member's Full Name has been edited!");
                                     break;
+
                                 case 2:
                                     System.out.println("Editing Member's ID:");
                                     System.out.println("Enter New ID:");
                                     searchMember.setStudentId(input.nextInt());
                                     System.out.println("Members' Id has been edited!");
                                     break;
+
                                 case 3:
                                     System.out.println("Editing Member's Faculty:");
                                     System.out.println("Enter New Faculty:");
@@ -95,6 +99,7 @@ public class Library {
                                     searchMember.setFaculty(input.nextLine());
                                     System.out.println("Member's Faculty has been edited!");
                                     break;
+
                                 case 4:
                                     System.out.println("Editing Member's Major:");
                                     System.out.println("Enter New Major:");
@@ -102,9 +107,11 @@ public class Library {
                                     searchMember.setField(input.nextLine());
                                     System.out.println("Members's Major has been edited!");
                                     break;
+
                                 default:
                                     System.out.println("You Got Back!\n");
                                 }
+
                         } while (selectEditNumber < 1 || selectEditNumber > 4);
                     } else {
                         System.out.println("Member Not Found!\n");
@@ -118,7 +125,7 @@ public class Library {
                     Member searchMember = members.get(i);
                     if (searchMember.getStudentId() == selectMember) {
                         searchMember.displayMemberInfo();
-                        System.out.println("Are U sure for deleting this Member? Only 'Yes' or 'No'!\n");
+                        System.out.println("Are you sure for deleting this Member? Only 'Yes' or 'No'!\n");
                         input.nextLine();
                         String answer = input.nextLine();
                         if (answer.equals("Yes")) {
@@ -133,6 +140,42 @@ public class Library {
                         System.out.println("Member Not Found!\n");
                     }
                 }
+            } else if ( selectedNumber == 4) {
+               System.out.println("Adding a Book:");
+
+               System.out.println("Enter Book's Code:");
+               int bookCode = input.nextInt();
+               input.nextLine();
+               System.out.println("\n");
+
+               System.out.println("Enter Book's Title:");
+               String title = input.nextLine();
+               System.out.println("\n");
+
+               System.out.println("Enter Book's Author:");
+               String author = input.nextLine();
+               System.out.println("\n");
+
+               System.out.println("Enter Book's Publish Year:");
+               int publishYear = input.nextInt();
+               input.nextLine();
+               System.out.println("\n");
+
+               System.out.println("Enter Book's Publisher:");
+               String publisher = input.nextLine();
+               System.out.println("\n");
+
+               System.out.println("Enter Book's Pages:");
+               int numberOfPages = input.nextInt();
+               input.nextLine();
+               System.out.println("\n");
+
+               System.out.println("Enter Book's Orginal Language:");
+               String orginalLanguage = input.nextLine();
+               System.out.println("\n");
+
+               books.add(new Book(bookCode, title, author, publishYear, publisher, numberOfPages, orginalLanguage));
+               System.out.println("Book Is Successfully added\n");
             }
         } while (selectedNumber != 0);
     }
