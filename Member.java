@@ -1,38 +1,31 @@
 public class Member {
-    private String fullName;
-    private int studentId;
-    private String faculty;
-    private String field;
-    private int entranceYear;
-    private int membershipDateDay;
-    private int membershipDateMonth;
-    private int membershipDateYear;
+    protected String fullName;
+    protected int entranceYear;
+    protected int membershipDateDay;
+    protected int membershipDateMonth;
+    protected int membershipDateYear;
 
-    public Member(String fullName, int studentId, String faculty, String field, int entranceYear, int membershipDateDay, int membershipDateMonth, int membershipDateYear) {
+    protected static int totalMembers = 0;
+
+    public static void increaseTotalMembers() {
+        totalMembers++;
+    }
+
+    public static void printTotalMembers() {
+        System.out.println("Members are: " + totalMembers);
+    }
+
+    public Member(String fullName, int entranceYear, int membershipDateDay, int membershipDateMonth, int membershipDateYear) {
         this.fullName = fullName;
-        this.studentId = studentId;
-        this.faculty = faculty;
-        this.field = field;
         this.entranceYear = entranceYear;
         this.membershipDateDay = membershipDateDay;
         this.membershipDateMonth = membershipDateMonth;
         this.membershipDateYear = membershipDateYear;
+        increaseTotalMembers();
     }
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
-    }
-
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
-    }
-
-    public void setFaculty(String faculty) {
-        this.faculty = faculty;
-    }
-
-    public void setField(String field) {
-        this.field = field;
     }
 
     public void setEntranceYear(int entranceYear) {
@@ -55,18 +48,6 @@ public class Member {
         return fullName;
     }
 
-    public int getStudentId() {
-        return studentId;
-    }
-
-    public String getFaculty() {
-        return faculty;
-    }
-
-    public String getField() {
-        return field;
-    }
-
     public int getEntranceYear() {
         return entranceYear;
     }
@@ -85,10 +66,144 @@ public class Member {
 
     public void displayMemberInfo(){
         System.out.println("1.Full Name: " + fullName);
-        System.out.println("2.Student Id: " + studentId);
-        System.out.println("3.Faculty: " + faculty);
-        System.out.println("4.Field: " + field);
-        System.out.println("5.Entrance Year: " + entranceYear);
-        System.out.println("6.Member Since: " + membershipDateDay + "/" + membershipDateMonth + "/" + membershipDateYear);
+        System.out.println("2.Entrance Year: " + entranceYear);
+        System.out.println("3.Member Since: " + membershipDateDay + "/" + membershipDateMonth + "/" + membershipDateYear);
     }
+
+    public abstract int getStudentId();
+
+    public abstract void setStudentId(int id);
+
+    public abstract String getFaculty();
+
+    public abstract void setFaculty(String faculty);
+
+    public abstract String getField();
+
+    public abstract void setField(String field);
+}
+
+class Professor extends Member {
+    protected int teachingCode;
+    public Professor(String fullName, int entranceYear, int membershipDateDay, int membershipDateMonth, int membershipDateYear, int teachingCode) {
+        super(fullName, entranceYear, membershipDateDay, membershipDateMonth, membershipDateYear);
+        this.teachingCode = teachingCode;
+    }
+
+    public void setTeachingCode(int teachingCode){
+        this.teachingCode = teachingCode;
+    }
+
+    public int getTeachingCode(){
+        return teachingCode;
+    }
+
+    @Override
+    public void displayMemberInfo() {
+        super.displayMemberInfo();
+        System.out.println("4.Teaching Code: " + teachingCode);
+    }
+
+}
+
+class UndergraduateStudent extends Member {
+    protected int studentId;
+    protected String faculty;
+    protected String field;
+
+    public UndergraduateStudent(String fullName, int studentId, String faculty, String field, int entranceYear, int membershipDateDay, int membershipDateMonth, int membershipDateYear) {
+        super(fullName, entranceYear, membershipDateDay, membershipDateMonth, membershipDateYear);
+        this.studentId = studentId;
+        this.faculty = faculty;
+        this.field = field;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
+    public void setFaculty(String faculty) {
+        this.faculty = faculty;
+    }
+
+    public void setField(String field) {
+        this.field = field;
+    }
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public String getFaculty() {
+        return faculty;
+    }
+
+    public String getField() {
+        return field;
+    }
+
+    @Override
+    public void displayMemberInfo() {
+    super.displayMemberInfo();
+    System.out.println("4.Student Id: " + studentId);
+    System.out.println("5.Faculty: " + faculty);
+    System.out.println("6.Field: " + field);
+}
+}
+
+class GraduateStudent extends Member {
+    protected int studentId;
+    protected String faculty;
+    protected String field;
+    protected int graduationYear;
+
+    public GraduateStudent(String fullName, int studentId, String faculty, String field, int entranceYear, int membershipDateDay, int membershipDateMonth, int membershipDateYear, int graduationYear) {
+        super(fullName, entranceYear, membershipDateDay, membershipDateMonth, membershipDateYear);
+        this.studentId = studentId;
+        this.faculty = faculty;
+        this.field = field;
+        this.graduationYear = graduationYear;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
+    public void setFaculty(String faculty) {
+        this.faculty = faculty;
+    }
+
+    public void setField(String field) {
+        this.field = field;
+    }
+
+    public void setGraduationYear(int graduationYear) {
+        this.graduationYear = graduationYear;
+    }
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public String getFaculty() {
+        return faculty;
+    }
+
+    public String getField() {
+        return field;
+    }
+
+    public int getGraduationYear() {
+        return graduationYear;
+    }
+
+    @Override
+    public void displayMemberInfo() {
+    super.displayMemberInfo();
+    System.out.println("4.Student Id: " + studentId);
+    System.out.println("5.Faculty: " + faculty);
+    System.out.println("6.Field: " + field);
+    System.out.println("7.Graduation Year: " + graduationYear);
+}
+
 }
