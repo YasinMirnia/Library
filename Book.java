@@ -1,11 +1,52 @@
 public class Book {
-    private int bookCode;
-    private String title;
-    private String author;
-    private int publishYear;
-    private String publisher;
-    private int numberOfPages;
-    private String orginalLanguage;
+    protected int bookCode;
+    protected String title;
+    protected String author;
+    protected int publishYear;
+    protected String publisher;
+    protected int numberOfPages;
+    protected String orginalLanguage;
+
+    protected static int totalBooks = 0;
+    protected static int availableBooksForReserve = 0;
+
+     public static boolean borrowBook() {
+        if (availableBooksForReserve > 0) {
+            availableBooksForReserve--;
+            return true;
+        }
+        return false;
+    }
+
+    public static void printTotalBooks() {
+        System.out.println("Total books are: " + totalBooks);
+    }
+
+    public static void printAvailableBooksForReserve() {
+        System.out.println("Total books that are available for reserve: " + availableBooksForReserve);
+    }
+
+    public static void increaseBooks() {
+        totalBooks++;
+    }
+
+    public static void increaseAvailableBooksForReserve() {
+        availableBooksForReserve++;
+    }
+
+    public static int getAvailableBooksForReserve() {
+        return availableBooksForReserve;
+    }
+
+     public static void decreaseBooks() {
+        if (totalBooks > 0)
+            totalBooks--;
+    }
+
+     public static void decreaseAvailableBooksForReserve() {
+        if (availableBooksForReserve > 0)
+            availableBooksForReserve--;
+    }
 
     public Book(int bookCode, String title, String author, int publishYear, String publisher,
     int numberOfPages, String orginalLanguage) {
@@ -16,6 +57,8 @@ public class Book {
         this.publisher = publisher;
         this.numberOfPages = numberOfPages;
         this.orginalLanguage = orginalLanguage;
+        totalBooks++;         
+        availableBooksForReserve++;
     }
 
     public void setBookCode(int bookCode){
@@ -71,4 +114,74 @@ public class Book {
         System.out.println("6.Book's Number of Pages:" + numberOfPages);
         System.out.println("7.Book's Orginal Language:" + orginalLanguage);
     }
+}
+
+class Novel extends Book {
+    protected String genere;
+    public Novel(int bookCode, String title, String author, int publishYear, String publisher,
+    int numberOfPages, String orginalLanguage, String genere) {
+        super(bookCode, title, author, publishYear, publisher, numberOfPages, orginalLanguage);
+        this.genere = genere;
+    }
+
+    public void setGenere(String genere){
+        this.genere = genere;
+    }
+
+    public String getGenere() {
+        return genere;
+    }
+
+    @Override
+    public void displayBookInfo() {
+        super.displayBookInfo();
+        System.out.println("8.Novel's Genere:" + genere);
+    }
+}
+
+class WorkBook extends Book {
+    protected String subject;
+    public WorkBook(int bookCode, String title, String author, int publishYear, String publisher,
+    int numberOfPages, String orginalLanguage, String subject) {
+        super(bookCode, title, author, publishYear, publisher, numberOfPages, orginalLanguage);
+        this.subject = subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+     @Override
+    public void displayBookInfo() {
+        super.displayBookInfo();
+        System.out.println("8.Work Book's Subject:" + subject);
+    }
+}
+
+class TextBook extends Book {
+    protected String jeldType;
+    public TextBook(int bookCode, String title, String author, int publishYear, String publisher,
+    int numberOfPages, String orginalLanguage, String jeldType) {
+        super(bookCode, title, author, publishYear, publisher, numberOfPages, orginalLanguage);
+        this.jeldType = jeldType;
+    }
+
+    public void setJeldType (String jeldType) {
+        this.jeldType = jeldType;
+    }
+
+    public String getJeldType () {
+        return jeldType;
+    }
+
+     @Override
+    public void displayBookInfo() {
+        super.displayBookInfo();
+        System.out.println("9.Text Book's Jeld Type:" + jeldType);
+    }
+
 }
