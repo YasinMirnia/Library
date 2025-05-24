@@ -1,12 +1,12 @@
 public class Member {
-    private String fullName;
-    private int studentId;
-    private String faculty;
-    private String field;
-    private int entranceYear;
-    private int membershipDateDay;
-    private int membershipDateMonth;
-    private int membershipDateYear;
+    protected String fullName;
+    protected int studentId;
+    protected String faculty;
+    protected String field;
+    protected int entranceYear;
+    protected int membershipDateDay;
+    protected int membershipDateMonth;
+    protected int membershipDateYear;
 
     public Member(String fullName, int studentId, String faculty, String field, int entranceYear, int membershipDateDay, int membershipDateMonth, int membershipDateYear) {
         this.fullName = fullName;

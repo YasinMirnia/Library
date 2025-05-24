@@ -1,11 +1,11 @@
 public class Book {
-    private int bookCode;
-    private String title;
-    private String author;
-    private int publishYear;
-    private String publisher;
-    private int numberOfPages;
-    private String orginalLanguage;
+    protected int bookCode;
+    protected String title;
+    protected String author;
+    protected int publishYear;
+    protected String publisher;
+    protected int numberOfPages;
+    protected String orginalLanguage;
 
     public Book(int bookCode, String title, String author, int publishYear, String publisher,
     int numberOfPages, String orginalLanguage) {
