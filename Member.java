@@ -1,4 +1,5 @@
 public class Member {
+
     protected String fullName;
     protected int entranceYear;
     protected int membershipDateDay;
@@ -15,7 +16,13 @@ public class Member {
         System.out.println("Members are: " + totalMembers);
     }
 
-    public Member(String fullName, int entranceYear, int membershipDateDay, int membershipDateMonth, int membershipDateYear) {
+    public Member(
+        String fullName,
+        int entranceYear,
+        int membershipDateDay,
+        int membershipDateMonth,
+        int membershipDateYear
+    ) {
         this.fullName = fullName;
         this.entranceYear = entranceYear;
         this.membershipDateDay = membershipDateDay;
@@ -44,7 +51,7 @@ public class Member {
         this.membershipDateYear = membershipDateYear;
     }
 
-   public String getFullName() {
+    public String getFullName() {
         return fullName;
     }
 
@@ -64,10 +71,17 @@ public class Member {
         return membershipDateYear;
     }
 
-    public void displayMemberInfo(){
+    public void displayMemberInfo() {
         System.out.println("1.Full Name: " + fullName);
         System.out.println("2.Entrance Year: " + entranceYear);
-        System.out.println("3.Member Since: " + membershipDateDay + "/" + membershipDateMonth + "/" + membershipDateYear);
+        System.out.println(
+            "3.Member Since: " +
+            membershipDateDay +
+            "/" +
+            membershipDateMonth +
+            "/" +
+            membershipDateYear
+        );
     }
 
     public abstract int getStudentId();
@@ -84,17 +98,26 @@ public class Member {
 }
 
 class Professor extends Member {
+
     protected int teachingCode;
-    public Professor(String fullName, int entranceYear, int membershipDateDay, int membershipDateMonth, int membershipDateYear, int teachingCode) {
+
+    public Professor(
+        String fullName,
+        int entranceYear,
+        int membershipDateDay,
+        int membershipDateMonth,
+        int membershipDateYear,
+        int teachingCode
+    ) {
         super(fullName, entranceYear, membershipDateDay, membershipDateMonth, membershipDateYear);
         this.teachingCode = teachingCode;
     }
 
-    public void setTeachingCode(int teachingCode){
+    public void setTeachingCode(int teachingCode) {
         this.teachingCode = teachingCode;
     }
 
-    public int getTeachingCode(){
+    public int getTeachingCode() {
         return teachingCode;
     }
 
@@ -103,15 +126,24 @@ class Professor extends Member {
         super.displayMemberInfo();
         System.out.println("4.Teaching Code: " + teachingCode);
     }
-
 }
 
 class UndergraduateStudent extends Member {
+
     protected int studentId;
     protected String faculty;
     protected String field;
 
-    public UndergraduateStudent(String fullName, int studentId, String faculty, String field, int entranceYear, int membershipDateDay, int membershipDateMonth, int membershipDateYear) {
+    public UndergraduateStudent(
+        String fullName,
+        int studentId,
+        String faculty,
+        String field,
+        int entranceYear,
+        int membershipDateDay,
+        int membershipDateMonth,
+        int membershipDateYear
+    ) {
         super(fullName, entranceYear, membershipDateDay, membershipDateMonth, membershipDateYear);
         this.studentId = studentId;
         this.faculty = faculty;
@@ -144,20 +176,31 @@ class UndergraduateStudent extends Member {
 
     @Override
     public void displayMemberInfo() {
-    super.displayMemberInfo();
-    System.out.println("4.Student Id: " + studentId);
-    System.out.println("5.Faculty: " + faculty);
-    System.out.println("6.Field: " + field);
-}
+        super.displayMemberInfo();
+        System.out.println("4.Student Id: " + studentId);
+        System.out.println("5.Faculty: " + faculty);
+        System.out.println("6.Field: " + field);
+    }
 }
 
 class GraduateStudent extends Member {
+
     protected int studentId;
     protected String faculty;
     protected String field;
     protected int graduationYear;
 
-    public GraduateStudent(String fullName, int studentId, String faculty, String field, int entranceYear, int membershipDateDay, int membershipDateMonth, int membershipDateYear, int graduationYear) {
+    public GraduateStudent(
+        String fullName,
+        int studentId,
+        String faculty,
+        String field,
+        int entranceYear,
+        int membershipDateDay,
+        int membershipDateMonth,
+        int membershipDateYear,
+        int graduationYear
+    ) {
         super(fullName, entranceYear, membershipDateDay, membershipDateMonth, membershipDateYear);
         this.studentId = studentId;
         this.faculty = faculty;
@@ -199,11 +242,10 @@ class GraduateStudent extends Member {
 
     @Override
     public void displayMemberInfo() {
-    super.displayMemberInfo();
-    System.out.println("4.Student Id: " + studentId);
-    System.out.println("5.Faculty: " + faculty);
-    System.out.println("6.Field: " + field);
-    System.out.println("7.Graduation Year: " + graduationYear);
-}
-
+        super.displayMemberInfo();
+        System.out.println("4.Student Id: " + studentId);
+        System.out.println("5.Faculty: " + faculty);
+        System.out.println("6.Field: " + field);
+        System.out.println("7.Graduation Year: " + graduationYear);
+    }
 }

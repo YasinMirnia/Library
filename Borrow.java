@@ -1,39 +1,45 @@
 public class Borrow {
+
     private Member member;
     private Book book;
     private int borrowDateDay;
     private int borrowDateMonth;
     private int borrowDateYear;
 
-
-    public Borrow(Member member, Book book, int borrowDateDay, int borrowDateMonth, int borrowDateYear) {
+    public Borrow(
+        Member member,
+        Book book,
+        int borrowDateDay,
+        int borrowDateMonth,
+        int borrowDateYear
+    ) {
         this.member = member;
         this.book = book;
         this.borrowDateDay = borrowDateDay;
         this.borrowDateMonth = borrowDateMonth;
-        this.borrowDateYear =borrowDateYear;
+        this.borrowDateYear = borrowDateYear;
         if (!Book.borrowBook()) {
             throw new IllegalStateException("There is no Book available for borrowing.");
         }
     }
 
-    public Member getMember () {
+    public Member getMember() {
         return member;
     }
 
-    public Book getBook () {
+    public Book getBook() {
         return book;
     }
-    
-    public int getBorrowDateDay () {
+
+    public int getBorrowDateDay() {
         return borrowDateDay;
     }
 
-    public int getBorrowDateMonth () {
+    public int getBorrowDateMonth() {
         return borrowDateMonth;
     }
 
-    public int getBorrowDateYear () {
+    public int getBorrowDateYear() {
         return borrowDateYear;
     }
 
@@ -41,7 +47,8 @@ public class Borrow {
         System.out.println("Borrow Information:");
         System.out.println("Member: " + member.getFullName());
         System.out.println("Book: " + book.getTitle());
-        System.out.println("Borrow Date: " + borrowDateDay + "/" + borrowDateMonth + "/" + borrowDateYear);
+        System.out.println(
+            "Borrow Date: " + borrowDateDay + "/" + borrowDateMonth + "/" + borrowDateYear
+        );
     }
-
 }

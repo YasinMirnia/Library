@@ -1,4 +1,5 @@
 public class Book {
+
     protected int bookCode;
     protected String title;
     protected String author;
@@ -10,7 +11,7 @@ public class Book {
     protected static int totalBooks = 0;
     protected static int availableBooksForReserve = 0;
 
-     public static boolean borrowBook() {
+    public static boolean borrowBook() {
         if (availableBooksForReserve > 0) {
             availableBooksForReserve--;
             return true;
@@ -23,7 +24,9 @@ public class Book {
     }
 
     public static void printAvailableBooksForReserve() {
-        System.out.println("Total books that are available for reserve: " + availableBooksForReserve);
+        System.out.println(
+            "Total books that are available for reserve: " + availableBooksForReserve
+        );
     }
 
     public static void increaseBooks() {
@@ -38,18 +41,23 @@ public class Book {
         return availableBooksForReserve;
     }
 
-     public static void decreaseBooks() {
-        if (totalBooks > 0)
-            totalBooks--;
+    public static void decreaseBooks() {
+        if (totalBooks > 0) totalBooks--;
     }
 
-     public static void decreaseAvailableBooksForReserve() {
-        if (availableBooksForReserve > 0)
-            availableBooksForReserve--;
+    public static void decreaseAvailableBooksForReserve() {
+        if (availableBooksForReserve > 0) availableBooksForReserve--;
     }
 
-    public Book(int bookCode, String title, String author, int publishYear, String publisher,
-    int numberOfPages, String orginalLanguage) {
+    public Book(
+        int bookCode,
+        String title,
+        String author,
+        int publishYear,
+        String publisher,
+        int numberOfPages,
+        String orginalLanguage
+    ) {
         this.bookCode = bookCode;
         this.title = title;
         this.author = author;
@@ -57,50 +65,62 @@ public class Book {
         this.publisher = publisher;
         this.numberOfPages = numberOfPages;
         this.orginalLanguage = orginalLanguage;
-        totalBooks++;         
+        totalBooks++;
         availableBooksForReserve++;
     }
 
-    public void setBookCode(int bookCode){
+    public void setBookCode(int bookCode) {
         this.bookCode = bookCode;
     }
-    public void setTitle(String title){
+
+    public void setTitle(String title) {
         this.title = title;
     }
-    public void setAuthor(String author){
+
+    public void setAuthor(String author) {
         this.author = author;
     }
-    public void setPublishYear(int publishYear){
+
+    public void setPublishYear(int publishYear) {
         this.publishYear = publishYear;
     }
-    public void setPublisher(String publisher){
+
+    public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
-    public void setNumberOfPages(int numberOfPages){
+
+    public void setNumberOfPages(int numberOfPages) {
         this.numberOfPages = numberOfPages;
     }
-    public void setOrginalLanguage(String orginalLanguage){
+
+    public void setOrginalLanguage(String orginalLanguage) {
         this.orginalLanguage = orginalLanguage;
     }
 
     public int getBookCode() {
         return bookCode;
     }
+
     public String getTitle() {
         return title;
     }
+
     public String getAuthor() {
         return author;
     }
+
     public int getPublishYear() {
         return publishYear;
     }
+
     public String getPublisher() {
         return publisher;
     }
+
     public int getNumberOfPages() {
         return numberOfPages;
     }
+
     public String getOrginalLanguage() {
         return orginalLanguage;
     }
@@ -117,14 +137,24 @@ public class Book {
 }
 
 class Novel extends Book {
+
     protected String genere;
-    public Novel(int bookCode, String title, String author, int publishYear, String publisher,
-    int numberOfPages, String orginalLanguage, String genere) {
+
+    public Novel(
+        int bookCode,
+        String title,
+        String author,
+        int publishYear,
+        String publisher,
+        int numberOfPages,
+        String orginalLanguage,
+        String genere
+    ) {
         super(bookCode, title, author, publishYear, publisher, numberOfPages, orginalLanguage);
         this.genere = genere;
     }
 
-    public void setGenere(String genere){
+    public void setGenere(String genere) {
         this.genere = genere;
     }
 
@@ -140,9 +170,19 @@ class Novel extends Book {
 }
 
 class WorkBook extends Book {
+
     protected String subject;
-    public WorkBook(int bookCode, String title, String author, int publishYear, String publisher,
-    int numberOfPages, String orginalLanguage, String subject) {
+
+    public WorkBook(
+        int bookCode,
+        String title,
+        String author,
+        int publishYear,
+        String publisher,
+        int numberOfPages,
+        String orginalLanguage,
+        String subject
+    ) {
         super(bookCode, title, author, publishYear, publisher, numberOfPages, orginalLanguage);
         this.subject = subject;
     }
@@ -155,7 +195,7 @@ class WorkBook extends Book {
         return subject;
     }
 
-     @Override
+    @Override
     public void displayBookInfo() {
         super.displayBookInfo();
         System.out.println("8.Work Book's Subject:" + subject);
@@ -163,25 +203,34 @@ class WorkBook extends Book {
 }
 
 class TextBook extends Book {
+
     protected String jeldType;
-    public TextBook(int bookCode, String title, String author, int publishYear, String publisher,
-    int numberOfPages, String orginalLanguage, String jeldType) {
+
+    public TextBook(
+        int bookCode,
+        String title,
+        String author,
+        int publishYear,
+        String publisher,
+        int numberOfPages,
+        String orginalLanguage,
+        String jeldType
+    ) {
         super(bookCode, title, author, publishYear, publisher, numberOfPages, orginalLanguage);
         this.jeldType = jeldType;
     }
 
-    public void setJeldType (String jeldType) {
+    public void setJeldType(String jeldType) {
         this.jeldType = jeldType;
     }
 
-    public String getJeldType () {
+    public String getJeldType() {
         return jeldType;
     }
 
-     @Override
+    @Override
     public void displayBookInfo() {
         super.displayBookInfo();
         System.out.println("9.Text Book's Jeld Type:" + jeldType);
     }
-
 }
