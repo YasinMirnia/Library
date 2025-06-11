@@ -7,17 +7,13 @@ public class Book {
     protected String publisher;
     protected int numberOfPages;
     protected String orginalLanguage;
+    protected boolean isAvailable = true;
 
     protected static int totalBooks = 0;
     protected static int availableBooksForReserve = 0;
-
-    public static boolean borrowBook() {
-        if (availableBooksForReserve > 0) {
-            availableBooksForReserve--;
-            return true;
-        }
-        return false;
-    }
+    protected static int availableBooksForBorrow = 0;
+    protected static int reservedBooks = 0;
+    protected static int borrowedBooks = 0;
 
     public static void printTotalBooks() {
         System.out.println("Total books are: " + totalBooks);
@@ -29,12 +25,36 @@ public class Book {
         );
     }
 
+    public static void printAvailableBooksForBorrow() {
+        System.out.println("Total Books that are available for Borrow: " + availableBooksForBorrow);
+    }
+
+    public static void printReservedBooks() {
+        System.out.println("Total Books that are Reserved: " + reservedBooks);
+    }
+
+    public static void printBorrowedBooks() {
+        System.out.println("Total Books that are Borrowed: " + borrowedBooks);
+    }
+
     public static void increaseBooks() {
         totalBooks++;
     }
 
     public static void increaseAvailableBooksForReserve() {
         availableBooksForReserve++;
+    }
+
+    public static void increaseAvailableBooksForBorrow() {
+        availableBooksForBorrow++;
+    }
+
+    public static void increaseReservedBooks() {
+        reservedBooks++;
+    }
+
+    public static void increaseBorrowedBooks() {
+        borrowedBooks++;
     }
 
     public static int getAvailableBooksForReserve() {
@@ -45,8 +65,8 @@ public class Book {
         if (totalBooks > 0) totalBooks--;
     }
 
-    public static void decreaseAvailableBooksForReserve() {
-        if (availableBooksForReserve > 0) availableBooksForReserve--;
+    public static void decreaseAvailableBooksForBorrow() {
+        if (availableBooksForBorrow > 0) availableBooksForBorrow--;
     }
 
     public Book(
@@ -95,6 +115,14 @@ public class Book {
 
     public void setOrginalLanguage(String orginalLanguage) {
         this.orginalLanguage = orginalLanguage;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
     }
 
     public int getBookCode() {
@@ -149,6 +177,7 @@ class Novel extends Book {
         int numberOfPages,
         String orginalLanguage,
         String genere
+
     ) {
         super(bookCode, title, author, publishYear, publisher, numberOfPages, orginalLanguage);
         this.genere = genere;

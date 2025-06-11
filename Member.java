@@ -8,11 +8,28 @@ public class Member {
     protected int membershipDateDay;
     protected int membershipDateMonth;
     protected int membershipDateYear;
+    protected int borrowedBooks = 0;
+
+    public void decreaseMemberBorrowedBooks() {
+        borrowedBooks--;
+    }
+
+    public int getMemberBorrowedBooks() {
+        return borrowedBooks;
+    }
+
+public void increaseBorrowedBooks() {
+    if (borrowedBooks < 3) borrowedBooks++;
+}
 
     protected static int totalMembers = 0;
 
     public static void increaseTotalMembers() {
         totalMembers++;
+    }
+
+    public static void decreaseTotalMembers() {
+        totalMembers--;
     }
 
     public static void printTotalMembers() {
@@ -165,7 +182,7 @@ class UndergraduateStudent extends Member {
 }
 
 class GraduateStudent extends Member {
-    
+
     protected int graduationYear;
 
     public GraduateStudent(

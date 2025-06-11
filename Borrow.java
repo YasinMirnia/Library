@@ -18,9 +18,6 @@ public class Borrow {
         this.borrowDateDay = borrowDateDay;
         this.borrowDateMonth = borrowDateMonth;
         this.borrowDateYear = borrowDateYear;
-        if (!Book.borrowBook()) {
-            throw new IllegalStateException("There is no Book available for borrowing.");
-        }
     }
 
     public Member getMember() {
