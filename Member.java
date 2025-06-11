@@ -9,18 +9,31 @@ public class Member {
     protected int membershipDateMonth;
     protected int membershipDateYear;
     protected int borrowedBooks = 0;
+    protected int reserveBooks = 0;
 
     public void decreaseMemberBorrowedBooks() {
         borrowedBooks--;
+    }
+
+    public void decreaseReservedBooks() {
+        reserveBooks--;
     }
 
     public int getMemberBorrowedBooks() {
         return borrowedBooks;
     }
 
-public void increaseBorrowedBooks() {
-    if (borrowedBooks < 3) borrowedBooks++;
-}
+    public int getReservedBooks() {
+        return reserveBooks;
+    }
+
+    public void increaseBorrowedBooks() {
+        if (borrowedBooks < 3) borrowedBooks++;
+    }
+
+    public void increaseReservedBooks() {
+        if (reserveBooks < 3) reserveBooks++;
+    }
 
     protected static int totalMembers = 0;
 

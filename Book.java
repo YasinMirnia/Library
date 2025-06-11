@@ -8,6 +8,7 @@ public class Book {
     protected int numberOfPages;
     protected String orginalLanguage;
     protected boolean isAvailable = true;
+    protected boolean isAvailableForReserve = false;
 
     protected static int totalBooks = 0;
     protected static int availableBooksForReserve = 0;
@@ -123,6 +124,14 @@ public class Book {
 
     public void setAvailable(boolean available) {
         isAvailable = available;
+    }
+
+    public boolean isAvailableForReserve() {
+        return isAvailableForReserve;
+    }
+
+    public void setAvailableForReserve(boolean availableForReserve) {
+        isAvailableForReserve = availableForReserve;
     }
 
     public int getBookCode() {
