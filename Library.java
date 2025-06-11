@@ -24,6 +24,7 @@ public class Library {
             System.out.println("5: Edit Book's Information");
             System.out.println("6: Delete Book");
             System.out.println("7: Borrow Book");
+            System.out.println("8: Reserve Book");
             System.out.println("0: Exit\n");
             selectedNumber = input.nextInt();
 
@@ -457,6 +458,7 @@ public class Library {
                                         System.out.println(searchMember.getStudentId());
                                         searchBook.setAvailable(false);
                                         searchMember.increaseBorrowedBooks();
+                                        searchBook.setAvailableForReserve(true);
                                         System.out.println("\n");
                                         break;
                                     } else {
@@ -477,8 +479,59 @@ public class Library {
                 } if (!found) {
                     System.out.println("Member Not Found!\n");
                 }
+            } else if (selectedNumber == 8) {
+                System.out.println("\n");
+                System.out.println("Reserve Book\n");
+
+                System.out.println("Select who want to Reserve?");
+                System.out.println("Enter Student ID:");
+                int selectMember = input.nextInt();
+                boolean found = false;
+                for (i = 0; i < members.size(); i++) {
+                    Member searchMember = members.get(i);
+                    if (searchMember.getStudentId() == selectMember) {
+                        found = true;
+                        searchMember.displayMemberInfo();
+                        System.out.println("\n");
+                        System.out.println("Which Book He/She wants To Reserve?");
+                        System.out.println("Enter Book Code:");
+                        int selectBook = input.nextInt();
+                        boolean foundBook = false;
+                        for (int j = 0; j < books.size(); j++) {
+                            Book searchBook = books.get(j);
+                            if (searchBook.getBookCode() == selectBook) {
+                                foundBook = true;
+                                searchBook.displayBookInfo();
+                                if (searchBook.isAvailableForReserve() == true){
+                                    System.out.println("\n Book is available for Reserve");
+                                    if (searchMember.getReservedBooks() <= 3) {
+                                        searchBook.displayBookInfo();
+                                        System.out.println("Reserved By:");
+                                        System.out.println(searchMember.getFullName());
+                                        System.out.println(searchMember.getStudentId());
+                                        searchMember.increaseReservedBooks();
+                                        System.out.println("\n");
+                                        break;
+                                    } else {
+                                        System.out.println("Member Reached Maximum for Reserve!\n");
+                                        break;
+                                    }
+                                } else {
+                                    System.out.println("Book is not Available for Reserve Please Borrow it!\n");
+                                    break;
+                                }
+                            }
+                            if (!foundBook) {
+                                System.out.println("Book Not Found!\n");
+                                break;
+                            }
+                        }
+                    }
+                } if (!found) {
+                    System.out.println("Member Not Found!\n");
+                }
             } else if (selectedNumber == 0) {
-                System.out.println("See You Soon!");
+                System.out.println("See You Soon!\n");
             } else {
                 System.out.println("Ivalid Number!\n");
             }

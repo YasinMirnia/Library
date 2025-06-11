@@ -12,30 +12,9 @@ public class Book {
 
     protected static int totalBooks = 0;
     protected static int availableBooksForReserve = 0;
-    protected static int availableBooksForBorrow = 0;
-    protected static int reservedBooks = 0;
-    protected static int borrowedBooks = 0;
 
     public static void printTotalBooks() {
         System.out.println("Total books are: " + totalBooks);
-    }
-
-    public static void printAvailableBooksForReserve() {
-        System.out.println(
-            "Total books that are available for reserve: " + availableBooksForReserve
-        );
-    }
-
-    public static void printAvailableBooksForBorrow() {
-        System.out.println("Total Books that are available for Borrow: " + availableBooksForBorrow);
-    }
-
-    public static void printReservedBooks() {
-        System.out.println("Total Books that are Reserved: " + reservedBooks);
-    }
-
-    public static void printBorrowedBooks() {
-        System.out.println("Total Books that are Borrowed: " + borrowedBooks);
     }
 
     public static void increaseBooks() {
@@ -46,28 +25,8 @@ public class Book {
         availableBooksForReserve++;
     }
 
-    public static void increaseAvailableBooksForBorrow() {
-        availableBooksForBorrow++;
-    }
-
-    public static void increaseReservedBooks() {
-        reservedBooks++;
-    }
-
-    public static void increaseBorrowedBooks() {
-        borrowedBooks++;
-    }
-
-    public static int getAvailableBooksForReserve() {
-        return availableBooksForReserve;
-    }
-
     public static void decreaseBooks() {
         if (totalBooks > 0) totalBooks--;
-    }
-
-    public static void decreaseAvailableBooksForBorrow() {
-        if (availableBooksForBorrow > 0) availableBooksForBorrow--;
     }
 
     public Book(
