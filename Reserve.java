@@ -2,22 +2,13 @@ public class Reserve {
 
     private Member member;
     private Book book;
-    private int reserveDateDay;
-    private int reserveDateMonth;
-    private int reserveDateYear;
 
     public Reserve(
         Member member,
-        Book book,
-        int reserveDateDay,
-        int reserveDateMonth,
-        int reserveDateYear
+        Book book
     ) {
         this.member = member;
         this.book = book;
-        this.reserveDateDay = reserveDateDay;
-        this.reserveDateMonth = reserveDateMonth;
-        this.reserveDateYear = reserveDateYear;
     }
 
     public Member getMember() {
@@ -28,24 +19,26 @@ public class Reserve {
         return book;
     }
 
-    public int getReserveDateDay() {
-        return borrowDateDay;
-    }
-
-    public int getReserveDateMonth() {
-        return borrowDateMonth;
-    }
-
-    public int getReserveDateYear() {
-        return borrowDateYear;
-    }
 
     public void displayReserveInfo() {
         System.out.println("Borrow Information:");
         System.out.println("Member: " + member.getFullName());
         System.out.println("Book: " + book.getTitle());
-        System.out.println(
-            "Reserve Date: " + borrowDateDay + "/" + borrowDateMonth + "/" + borrowDateYear
-        );
+    }
+
+    protected class ReserveDate {
+        protected int day;
+        protected int month;
+        protected int year;
+
+        public ReserveDate(int day, int month, int year) {
+            this.day = day;
+            this.month = month;
+            this.year = year;
+        }
+
+        public String getFormattedDate() {
+            return day + "/" + month + "/" + year;
+        }
     }
 }

@@ -2,22 +2,13 @@ public class Borrow {
 
     private Member member;
     private Book book;
-    private int borrowDateDay;
-    private int borrowDateMonth;
-    private int borrowDateYear;
 
     public Borrow(
         Member member,
-        Book book,
-        int borrowDateDay,
-        int borrowDateMonth,
-        int borrowDateYear
+        Book book
     ) {
         this.member = member;
         this.book = book;
-        this.borrowDateDay = borrowDateDay;
-        this.borrowDateMonth = borrowDateMonth;
-        this.borrowDateYear = borrowDateYear;
     }
 
     public Member getMember() {
@@ -28,24 +19,25 @@ public class Borrow {
         return book;
     }
 
-    public int getBorrowDateDay() {
-        return borrowDateDay;
-    }
-
-    public int getBorrowDateMonth() {
-        return borrowDateMonth;
-    }
-
-    public int getBorrowDateYear() {
-        return borrowDateYear;
-    }
-
     public void displayBorrowInfo() {
         System.out.println("Borrow Information:");
         System.out.println("Member: " + member.getFullName());
         System.out.println("Book: " + book.getTitle());
-        System.out.println(
-            "Borrow Date: " + borrowDateDay + "/" + borrowDateMonth + "/" + borrowDateYear
-        );
+    }
+
+    protected class BorrowDate {
+        protected int day;
+        protected int month;
+        protected int year;
+
+        public BorrowDate(int day, int month, int year) {
+            this.day = day;
+            this.month = month;
+            this.year = year;
+        }
+
+        public String getFormattedDate() {
+            return day + "/" + month + "/" + year;
+        }
     }
 }
